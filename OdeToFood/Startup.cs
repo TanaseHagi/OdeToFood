@@ -46,6 +46,8 @@ namespace OdeToFood
             // app.UseDefaultFiles();
             app.UseStaticFiles();
 
+            app.UseNodeModules(env.ContentRootPath);
+
             app.UseMvc(ConfigureRoutes);
             
             //app.Use(next =>
@@ -71,12 +73,12 @@ namespace OdeToFood
             //    Path = "/wp",
             //});
 
-            app.Run(async (context) =>
-            {
-                context.Response.ContentType = "text/html";
-                await context.Response.WriteAsync("Not Found!");
-                // await context.Response.WriteAsync($"Hello World! {greeter.getMessageOfTheDay()} {config["Greeting"]}");
-            });
+            //app.Run(async (context) =>
+            //{
+            //    context.Response.ContentType = "text/html";
+            //    await context.Response.WriteAsync("Not Found!");
+            //    // await context.Response.WriteAsync($"Hello World! {greeter.getMessageOfTheDay()} {config["Greeting"]}");
+            //});
         }
 
         private void ConfigureRoutes(IRouteBuilder routeBuilder)
